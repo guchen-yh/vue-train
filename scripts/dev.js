@@ -8,7 +8,7 @@ const format = args.f || 'global'
 
 const pkg = require(path.resolve(__dirname, `../packages/${target}/package.json`))
 
-const outputFormat = format.startswWith('global')
+const outputFormat = format.startsWith('global')
     ? 'iife' 
     : format === 'cjs'
     ? 'cjs'
@@ -23,7 +23,7 @@ build({
     sourcemap: true,
     format: outputFormat,
     globalName: pkg.buildOptions?.name,
-    paltform: format === 'cjs' ? 'node' : 'browser',
+    platform: format === 'cjs' ? 'node' : 'browser',
     watch: {
         // 监控文件变化
         onRebuild(){
